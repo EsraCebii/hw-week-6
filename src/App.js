@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-function App() {
+import useCookie from "./useCookie";
+
+export default function App() {
+  const [cookie, updateCookie] = useCookie("username", "BrandonBaars");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hello CodeSandbox</h1>
+      <h1>{cookie}</h1>
+      <button
+        onClick={() => {
+          updateCookie("updatedUsername", 10);
+        }}
+      >
+        Store Cookie
+      </button>
     </div>
   );
 }
-
-export default App;
